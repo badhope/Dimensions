@@ -1,0 +1,35 @@
+{
+  "name": "dimension-explorer",
+  "version": "2.0.0",
+  "description": "交互式高维宇宙科普系统 - 从 0 维奇点到 11 维 M 理论之巅",
+  "type": "module",
+  "scripts": {
+    "dev": "npx http-server -p 8080 -c-1",
+    "serve": "npx live-server --port=8080 --no-browser",
+    "build": "echo 'No build step required - using vanilla JS modules'",
+    "test": "echo 'No tests configured yet'"
+  },
+  "keywords": [
+    "physics",
+    "cosmology",
+    "string-theory",
+    "dimensions",
+    "science-education",
+    "interactive",
+    "visualization"
+  ],
+  "author": "Dimension Explorer Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/badhope/Dimensions.git"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

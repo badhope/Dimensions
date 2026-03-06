@@ -1,0 +1,214 @@
+/* 动画定义 */
+/* 0 维 */
+.dim-0-point {
+  width: 16px; height: 16px;
+  background: var(--stellar);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--stellar), 0 0 40px var(--stellar);
+  animation: point-breathe 2s ease-in-out infinite;
+}
+@keyframes point-breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+/* 1 维 */
+.dim-1-line {
+  width: 140px; height: 4px;
+  background: linear-gradient(90deg, transparent, var(--stellar), #fff, var(--stellar), transparent);
+  border-radius: 4px;
+  animation: line-scan 2s linear infinite;
+  box-shadow: 0 0 20px var(--stellar);
+}
+@keyframes line-scan {
+  0% { opacity: 0.3; transform: scaleX(0.8); }
+  50% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0.3; transform: scaleX(0.8); }
+}
+
+/* 2 维 */
+.dim-2-plane {
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 45, 255, 0.2));
+  border: 2px solid var(--stellar);
+  border-radius: 12px;
+  animation: plane-rotate 6s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes plane-rotate {
+  0% { transform: perspective(500px) rotateX(0deg) rotateY(0deg); }
+  100% { transform: perspective(500px) rotateX(360deg) rotateY(360deg); }
+}
+
+/* 3 维 */
+.dim-3-cube {
+  width: 80px; height: 80px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cube-spin 8s linear infinite;
+}
+.dim-3-cube .face {
+  position: absolute;
+  width: 80px; height: 80px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--stellar);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--stellar);
+  font-family: 'Orbitron', sans-serif;
+}
+.dim-3-cube .front { transform: translateZ(40px); background: rgba(0, 212, 255, 0.15); }
+.dim-3-cube .back { transform: translateZ(-40px) rotateY(180deg); }
+.dim-3-cube .right { transform: translateX(40px) rotateY(90deg); }
+.dim-3-cube .left { transform: translateX(-40px) rotateY(-90deg); }
+.dim-3-cube .top { transform: translateY(-40px) rotateX(90deg); }
+.dim-3-cube .bottom { transform: translateY(40px) rotateX(-90deg); }
+@keyframes cube-spin {
+  0% { transform: rotateX(-20deg) rotateY(0deg); }
+  100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+
+/* 4 维 */
+.dim-4-spacetime {
+  width: 120px; height: 120px;
+  position: relative;
+}
+.dim-4-spacetime .time-ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid;
+  border-radius: 50%;
+  animation: time-expand 3s ease-out infinite;
+}
+.dim-4-spacetime .time-ring:nth-child(1) { border-color: var(--stellar); animation-delay: 0s; }
+.dim-4-spacetime .time-ring:nth-child(2) { border-color: var(--aurora); animation-delay: 1s; }
+.dim-4-spacetime .time-ring:nth-child(3) { border-color: var(--nova); animation-delay: 2s; }
+@keyframes time-expand {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* 5 维 */
+.dim-5-timeline {
+  width: 140px; height: 120px;
+  position: relative;
+}
+.dim-5-timeline .main-line {
+  position: absolute;
+  width: 3px; height: 100%;
+  left: 50%; transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--stellar), var(--aurora));
+  border-radius: 3px;
+}
+.dim-5-timeline .branch-line {
+  position: absolute;
+  height: 2px;
+  background: var(--stellar);
+  left: 50%;
+  transform-origin: left center;
+  animation: branch-pulse 2s ease-in-out infinite;
+}
+.dim-5-timeline .branch-line:nth-child(2) { top: 20%; width: 50px; transform: rotate(35deg); animation-delay: 0.2s; }
+.dim-5-timeline .branch-line:nth-child(3) { top: 40%; width: 60px; transform: rotate(-35deg); animation-delay: 0.4s; }
+.dim-5-timeline .branch-line:nth-child(4) { top: 60%; width: 45px; transform: rotate(30deg); animation-delay: 0.6s; }
+.dim-5-timeline .branch-line:nth-child(5) { top: 80%; width: 55px; transform: rotate(-30deg); animation-delay: 0.8s; }
+@keyframes branch-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* 6 维 */
+.dim-6-fold {
+  width: 130px; height: 130px;
+  position: relative;
+}
+.dim-6-fold .fold-circle {
+  position: absolute;
+  border: 2px solid;
+  border-radius: 50%;
+  animation: fold-morph 4s ease-in-out infinite;
+}
+.dim-6-fold .fold-circle:nth-child(1) { inset: 0; border-color: var(--stellar); animation-delay: 0s; }
+.dim-6-fold .fold-circle:nth-child(2) { inset: 20%; border-color: var(--aurora); animation-delay: 0.5s; }
+.dim-6-fold .fold-circle:nth-child(3) { inset: 40%; border-color: var(--nova); animation-delay: 1s; }
+@keyframes fold-morph {
+  0%, 100% { transform: scale(1) rotate(0deg); border-radius: 50%; }
+  25% { transform: scale(0.9) rotate(90deg); border-radius: 30%; }
+  50% { transform: scale(1.1) rotate(180deg); border-radius: 50%; }
+  75% { transform: scale(0.95) rotate(270deg); border-radius: 40%; }
+}
+
+/* 高维 */
+.dim-high-orbit {
+  width: 140px; height: 140px;
+  position: relative;
+}
+.dim-high-orbit .orbit-dot {
+  position: absolute;
+  width: 10px; height: 10px;
+  background: var(--stellar);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--stellar);
+  top: 50%; left: 50%;
+  margin: -5px;
+}
+.dim-high-orbit .orbit-dot:nth-child(1) { animation: orbit-path1 5s linear infinite; }
+.dim-high-orbit .orbit-dot:nth-child(2) { animation: orbit-path2 7s linear infinite; background: var(--aurora); box-shadow: 0 0 12px var(--aurora); }
+.dim-high-orbit .orbit-dot:nth-child(3) { animation: orbit-path3 9s linear infinite; background: var(--nova); box-shadow: 0 0 12px var(--nova); }
+.dim-high-orbit .orbit-dot:nth-child(4) { animation: orbit-path4 11s linear infinite; }
+.dim-high-orbit .orbit-dot:nth-child(5) { animation: orbit-path5 13s linear infinite; background: var(--quasar); box-shadow: 0 0 12px var(--quasar); }
+.dim-high-orbit .orbit-dot:nth-child(6) { animation: orbit-path6 15s linear infinite; background: var(--matrix); box-shadow: 0 0 12px var(--matrix); }
+
+@keyframes orbit-path1 { 0% { transform: rotate(0deg) translateX(60px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); } }
+@keyframes orbit-path2 { 0% { transform: rotate(60deg) translateX(50px) rotate(-60deg); } 100% { transform: rotate(420deg) translateX(50px) rotate(-420deg); } }
+@keyframes orbit-path3 { 0% { transform: rotate(120deg) translateX(65px) rotate(-120deg); } 100% { transform: rotate(480deg) translateX(65px) rotate(-480deg); } }
+@keyframes orbit-path4 { 0% { transform: rotate(180deg) translateX(45px) rotate(-180deg); } 100% { transform: rotate(540deg) translateX(45px) rotate(-540deg); } }
+@keyframes orbit-path5 { 0% { transform: rotate(240deg) translateX(70px) rotate(-240deg); } 100% { transform: rotate(600deg) translateX(70px) rotate(-600deg); } }
+@keyframes orbit-path6 { 0% { transform: rotate(300deg) translateX(55px) rotate(-300deg); } 100% { transform: rotate(660deg) translateX(55px) rotate(-660deg); } }
+
+/* 11 维 */
+.dim-11-string {
+  width: 150px; height: 150px;
+  position: relative;
+}
+.dim-11-string .vibrate-ring {
+  position: absolute; inset: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: string-wave 1.5s ease-in-out infinite;
+}
+.dim-11-string .vibrate-ring:nth-child(1) { border-color: var(--stellar); animation-delay: 0s; }
+.dim-11-string .vibrate-ring:nth-child(2) { border-color: var(--aurora); animation-delay: 0.25s; transform: rotate(45deg); }
+.dim-11-string .vibrate-ring:nth-child(3) { border-color: var(--nova); animation-delay: 0.5s; transform: rotate(90deg); }
+.dim-11-string .vibrate-ring:nth-child(4) { border-color: var(--quasar); animation-delay: 0.75s; transform: rotate(135deg); }
+.dim-11-string .string-core {
+  position: absolute;
+  width: 24px; height: 24px;
+  background: radial-gradient(circle, #fff, var(--quasar));
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px var(--quasar);
+  animation: core-glow 1s ease-in-out infinite;
+}
+@keyframes string-wave {
+  0%, 100% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+@keyframes core-glow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 40px var(--quasar); }
+  50% { transform: translate(-50%, -50%) scale(1.3); box-shadow: 0 0 60px var(--quasar); }
+}
+
+/* 通用动画 */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(50px) scale(0.98);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-item.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.emoji-float { display: inline-block; animation: emoji-bob 2s ease-in-out infinite; }
+@keyframes emoji-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
